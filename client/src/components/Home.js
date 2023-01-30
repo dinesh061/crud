@@ -14,9 +14,9 @@ const Home = () => {
     const [getuserdata, setUserdata] = useState([]);
     console.log(getuserdata);
 
-    const { udata, setUdata } = useContext(adddata);
+    const { udata } = useContext(adddata);
 
-    const {updata, setUPdata} = useContext(updatedata);
+    const {updata} = useContext(updatedata);
 
     const {dltdata, setDLTdata} = useContext(deldata);
 

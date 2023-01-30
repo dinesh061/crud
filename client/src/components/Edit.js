@@ -8,7 +8,7 @@ const Edit = () => {
     // const [getuserdata, setUserdata] = useState([]);
     // console.log(getuserdata);
 
-   const {updata, setUPdata} = useContext(updatedata)
+   const { setUPdata} = useContext(updatedata)
 
     const history = useHistory("");
 
@@ -63,7 +63,7 @@ const Edit = () => {
 
     useEffect(() => {
         getdata();
-    }, []);
+    }, [getdata]);
 
 
     const updateuser = async(e)=>{

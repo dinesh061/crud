@@ -4,7 +4,7 @@ import { adddata } from './context/ContextProvider';
 
 const Register = () => {
 
-    const { udata, setUdata } = useContext(adddata);
+    const {  setUdata } = useContext(adddata);
 
     const history = useHistory();
 

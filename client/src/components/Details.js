@@ -44,7 +44,7 @@ const Details = () => {
 
     useEffect(() => {
         getdata();
-    }, [])
+    }, [getdata])
 
     const deleteuser = async (id) => {
 
