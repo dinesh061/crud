@@ -8,6 +8,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
+import { useCallback } from 'react'
 
 
 const Details = () => {
@@ -23,7 +24,7 @@ const Details = () => {
 
     const getdata = async () => {
 
-        const res = await fetch(`http://localhost:8003/api/tasks/getuser/${id}`, {
+        const res = await fetch(`https://crudappreactjs.herokuapp.com/getuser/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -41,14 +42,16 @@ const Details = () => {
             console.log("get data");
         }
     }
-
-    useEffect(() => {
-        getdata();
-    }, [getdata])
+    
+    
+     useCallback(() => {
+    getdata()
+  }, [])
+  
 
     const deleteuser = async (id) => {
 
-        const res2 = await fetch(`http://localhost:8003/api/tasks/deleteuser/${id}`, {
+        const res2 = await fetch(`https://crudappreactjs.herokuapp.com/deleteuser/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

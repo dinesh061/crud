@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { NavLink, useParams,useHistory } from 'react-router-dom'
-import { updatedata } from './context/ContextProvider'
+import { updatedata } from './context/ContextProvider';
+import { useCallback } from 'react'
 
 
 const Edit = () => {
@@ -8,7 +9,7 @@ const Edit = () => {
     // const [getuserdata, setUserdata] = useState([]);
     // console.log(getuserdata);
 
-   const { setUPdata} = useContext(updatedata)
+   const {updata, setUPdata} = useContext(updatedata)
 
     const history = useHistory("");
 
@@ -41,7 +42,7 @@ const Edit = () => {
 
     const getdata = async () => {
 
-        const res = await fetch(`http://localhost:8003/api/tasks/getuser/${id}`, {
+        const res = await fetch(`https://crudappreactjs.herokuapp.com/getuser/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -61,9 +62,11 @@ const Edit = () => {
         }
     }
 
-    useEffect(() => {
-        getdata();
-    }, [getdata]);
+   
+      
+    useCallback(() => {
+        getdata()
+      }, [])
 
 
     const updateuser = async(e)=>{
@@ -71,7 +74,7 @@ const Edit = () => {
 
         const {name,email,work,add,mobile,desc,age} = inpval;
 
-        const res2 = await fetch(`http://localhost:8003/api/tasks/updateuser/${id}`,{
+        const res2 = await fetch(`https://crudappreactjs.herokuapp.com/updateuser/${id}`,{
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
