@@ -1,6 +1,6 @@
 import React, { useContext,useState } from 'react'
 import { NavLink, useParams,useHistory } from 'react-router-dom'
-import { updatedata } from './context/ContextProvider';
+import { updatedata } from './context/ContextProvider'
 import { useCallback } from 'react'
 
 
@@ -42,7 +42,7 @@ const Edit = () => {
 
     const getdata = async () => {
 
-        const res = await fetch(`https://crudappreactjs.herokuapp.com/getuser/${id}`, {
+        const res = await fetch(`http://localhost:8003/api/tasks/getuser/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -62,19 +62,16 @@ const Edit = () => {
         }
     }
 
-   
-      
     useCallback(() => {
         getdata()
       }, [])
-
 
     const updateuser = async(e)=>{
         e.preventDefault();
 
         const {name,email,work,add,mobile,desc,age} = inpval;
 
-        const res2 = await fetch(`https://crudappreactjs.herokuapp.com/updateuser/${id}`,{
+        const res2 = await fetch(`http://localhost:8003/api/tasks/updateuser/${id}`,{
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
