@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext,useState } from 'react'
 import { NavLink, useParams,useHistory } from 'react-router-dom'
 import { updatedata } from './context/ContextProvider';
 import { useCallback } from 'react'
